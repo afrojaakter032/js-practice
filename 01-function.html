@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>function-17-03-2024</title>
+</head>
+<body>
+    <div id="result"></div>
+    
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+             // function practice
+         
+            function welcome() {
+                console.log('welcome')
+            }
+            
+            welcome();
+
+            function sum(num1, num2) {
+                let result = num1 + num2;
+                document.getElementById("result").innerHTML = `<div>${num1}+${num2} = ${result}<div/>`
+                // document.getElementById("result").innerHTML = num1 + '+' + num2 + '=' + result
+            }
+
+            sum(10, 30); 
+
+            function multiply(num1, num2) {
+                let result = num1 * num2;
+                document.getElementById("result").innerHTML  += `<div>${num1} * ${num2} = ${result}<div/>`
+            }
+
+            multiply(2, 33);
+
+            function helloWorld() {
+                document.getElementById("result").innerHTML += 'helloWorld' + ' ' + 'bangladesh' + '<br />'
+            }
+            helloWorld();
+
+            // function calling inside the funtion
+
+            function  percentage(value, percent) {
+                let result = (value/100) * percent;
+                return result;
+            }
+
+            function showBalance() {
+                let totalMoney = 12000;
+                let totalCommision = percentage(totalMoney, 10)
+                let totalBalance = totalMoney + totalCommision;
+                document.getElementById("result").innerHTML += `<div>Total Balance = ${totalBalance}</div>`
+            }
+            showBalance();
+
+            function dressDiscount() {
+                let dressPrice = 6000;
+                let totalDiscount = percentage(dressPrice, 15)
+                let dressPriceWithDiscount = dressPrice - totalDiscount;
+                document.getElementById("result").innerHTML += `<div>Total discount = ${totalDiscount}, Dress price with discount = ${dressPriceWithDiscount}</div>` 
+            }
+            dressDiscount();
+
+            function moneyDstribution() {
+                let totalMoney = 34000;
+                let externalTeacherSalary = 1000;
+                let shareHolder = percentage(totalMoney, 30);
+                let teacherSalary = totalMoney - (shareHolder + externalTeacherSalary);
+                document.getElementById("result").innerHTML += `<div>share Holder amount = ${shareHolder}, Teacher Salary = ${teacherSalary}</div>`
+            }
+            moneyDstribution();
+
+            let salary = () => {
+                let basicSalary = 15000;
+                let bonus = percentage(basicSalary, 50);
+                let totalSalary = basicSalary + bonus;
+                document.getElementById("result").innerHTML += `<div> Bonus = ${bonus}, Total Salary = ${totalSalary}</div>`
+            }
+            salary();
+
+        })
+
+       
+
+       
+    </script>
+</body>
+</html>

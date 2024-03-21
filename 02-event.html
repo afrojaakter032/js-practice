@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>event-19-03-2024</title>
+</head>
+<body>
+    <button id="success-btn">show success</button>
+    <button onclick="showAlert();">show success inline</button>
+    <br/>
+    <br/>
+    <div>
+        <div>
+            <label for="product_price">Product Price</label>
+            <input type="number" name="product_price" id="product_price">
+        </div>
+        <br/>
+        <div>
+            <label for="product_discount">Product Discount(%)</label>
+            <input type="number" name="product_discount" id="product_discount">
+        </div>
+        <br/>
+        <div>
+            <label for="product_result">Product Price with Discount</label>
+            <input type="number" name="product_result" id="product_result">
+        </div>
+        <br/>
+        <br/>
+        <button class="product-submit-btn" type="button">submit</button>
+        <button class="product-reset-btn" type="button">Reset</button>
+    </div>
+    <br/>
+    <br/>
+
+    
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("success-btn").addEventListener("click", function() {
+                // alert("show the success"); 
+                showAlert();        
+            })
+            // document.getElementById("success-btn").addEventListener("mouseout", showAlert) 
+                 
+
+            function showAlert() {
+                alert('show ur success');
+            }
+            window.showAlert = showAlert
+
+            function  percentage(value, percent) {
+                let result = (value/100) * percent;
+                return result;
+                
+            }
+
+            document.querySelector(".product-submit-btn").addEventListener("click", calculateDiscount);
+                
+            document.querySelector(".product-reset-btn").addEventListener("click", () => {
+                document.getElementById("product_price").value = "";
+                document.getElementById("product_discount").value = "";
+                document.getElementById("product_result").value = "";
+            })
+
+            document.getElementById("product_price",).addEventListener("input", calculateDiscount);
+            document.getElementById("product_discount",).addEventListener("input", calculateDiscount);
+    
+            function calculateDiscount() {
+                let product_price = document.getElementById("product_price").value;
+                let product_discount = document.getElementById("product_discount").value;
+                let total_discount = percentage(product_price, product_discount);
+                let product_price_with_discount = product_price - total_discount
+                document.getElementById("product_result").value = product_price_with_discount;
+            }
+});
+
+            
+            
+            
+
+        
+    </script>
+</body>
+</html>
