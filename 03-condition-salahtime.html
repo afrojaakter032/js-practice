@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>condition-20-03-2024</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="./assets/css/main.css">
+    
+</head>
+<body>
+    <div>
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-sm-3">
+                    <div class="text-center mt-3">
+                        <div class="fs-5">Baitun Nur Kendrio Jame Mosjid
+                            <!-- <svg viewBox="0 0 1000 1000">
+                                <path id="curve" fill="transparent" d="M73.2,148.6c4-6.1,65.5-96.8,178.6-95.6c111.3,1.2,170.8,90.3,175.1,97" />
+                                <text width="500">
+                                  <textPath xlink:href="#curve">
+                                    
+                                  </textPath>
+                                </text>
+                              </svg> -->
+                        </div>
+                        <div>dokkhin Anondo Nogor, Baddha, Dhaka</div>
+                        <div class="fs-1" id="digital-clock"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="d-flex justify-content-center align-items-center gap-3">
+                                <div id="digital-date"></div>
+                                <!-- <div>Date</div>
+                                <div>25</div>
+                                <div>Month</div>
+                                <div>05</div>
+                                <div>Year</div>
+                                <div>24</div> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="d-flex justify-content-center align-items-center gap-3">
+                                <div>Sat</div>
+                                <div>Sun</div>
+                                <div>Mon</div>
+                                <div>Tues</div>
+                                <div>Wed</div>
+                                <div>Thrus</div>
+                                <div>Fri</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 text-center">
+                            <div class="fw-bold fs-4">Schedule of Salah</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="salah-time-card salah-time-card-fajar">
+                                <div>Fajar</div>
+                                <div>➯</div>
+                                <div>5.00</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="salah-time-card salah-time-card-dhuhur">
+                                <div>Dhuhur</div>
+                                <div>➯</div>
+                                <div>12.06</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="salah-time-card salah-time-card-asr">
+                                <div>Asr</div>
+                                <div>➯</div>
+                                <div>12.06</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="salah-time-card salah-time-card-magrib">
+                                <div>Magrib</div>
+                                <div>➯</div>
+                                <div>15.31</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="salah-time-card salah-time-card-esha">
+                                <div>Esha</div>
+                                <div>➯</div>
+                                <div>19.25</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="salah-time-card salah-time-card-jummah">
+                                <div>Jummah</div>
+                                <div>➯</div>
+                                <div>13.30</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="salah-time-card salah-time-card-sunrise">
+                                <div>Sunrise</div>
+                                <div>➯</div>
+                                <div>18.00</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="salah-time-card salah-time-card-sunset">
+                                <div>Sunset</div>
+                                <div>➯</div>
+                                <div>18.13</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="salah-time-card salah-time-card-saheri">
+                                <div>Saheri</div>
+                                <div>➯</div>
+                                <div>16.44</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="salah-time-card salah-time-card-iftar">
+                                <div>Iftar</div>
+                                <div>➯</div>
+                                <div>18.12</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="text-center">
+                                <div>Keep your phone switched off in Mosjid</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center mt-5">
+        <div><b>This is: </b><span id="salah-result"></span></div>
+        <div><b>Digital Clock: </b><span id="digital-clock"></span></div>
+        <div><b>Digital Date: </b><span id="digital-date"></span></div>
+        
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+           
+            Date.prototype.getMinutesWithZero = function () {
+                if (this.getMinutes() < 10) {
+                    return '0' + this.getMinutes();
+                }
+
+                return this.getMinutes();
+            };
+
+            Date.prototype.getSecondsWithZero = function () {
+                if (this.getSeconds() < 10) {
+                    return '0' + this.getSeconds();
+                }
+
+                return this.getSeconds();
+            };
+
+            Date.prototype.getMonthWithZero = function () {
+                let month = this.getMonth() + 1;
+                if (month < 10) {
+                    return '0' + month;
+                }
+                return month;
+            }
+            
+            function digitalDate() {
+                let digitalDate = new Date();
+                let day = digitalDate.getDate();
+                let month = digitalDate.getMonthWithZero();
+                let year = digitalDate.getFullYear();
+                document.getElementById("digital-date").innerHTML = `Date ${day} Month ${month} Year ${year}`                                       
+            }
+            digitalDate();
+
+            function digitalClock() {
+                let digitalClock = new Date();
+                let hours = digitalClock.getHours();
+                let minutes = digitalClock.getMinutesWithZero();
+                let seconds = digitalClock.getSecondsWithZero();
+                document.getElementById("digital-clock").innerHTML = `${hours}: ${minutes}: ${seconds}`
+                salahTiming(hours, minutes);
+            }
+
+            let isAzanStarted = false;
+            setInterval(digitalClock, 1000);
+            digitalClock();
+            
+            function salahTiming(hours, minutes) {
+                let salahTime = 16; //parseFloat(hours + '.' + minutes);
+                
+                let salahName;
+                
+                switch (true) {
+                    case salahTime >= 4.50 && salahTime <= 6.08:
+                        salahName = "Fajar Time";
+                        document.querySelector('.salah-time-card-fajar').classList.add('active')
+                        break;
+                    case salahTime >= 12.06 && salahTime <= 15.30: 
+                        salahName = "Dhuhur Time";
+                        document.querySelector('.salah-time-card-dhuhur').classList.add('active')
+                        document.querySelector('.salah-time-card-fajar').classList.remove('active')
+                        break;
+                    case salahTime >= 15.31 && salahTime <= 18.10: 
+                        salahName = "Asr Time";
+                        document.querySelector('.salah-time-card-asr').classList.add('active')
+                        document.querySelector('.salah-time-card-dhuhur').classList.remove('active')
+                        break;
+                    case salahTime >= 18.11 && salahTime <= 19: 
+                        salahName = "Magrib Time";
+                        document.querySelector('.salah-time-card-magrib').classList.add('active')
+                        document.querySelector('.salah-time-card-asr').classList.remove('active')
+                        break;
+                    case salahTime >= 19.25 && salahTime <= 24:
+                        salahName = "Esha Time";
+                        document.querySelector('.salah-time-card-esha').classList.add('active')
+                        document.querySelector('.salah-time-card-magrib').classList.remove('active')
+                        break;
+                    default:  
+                        salahName = "No Salah Time";
+
+                } 
+                document.getElementById("salah-result").innerHTML = salahName;
+
+                // if (salahTime >= 4.50 && salahTime <= 6.08) {
+                //     salahName = "Fajar Time";
+                //     document.querySelector('.salah-time-card-fajar').classList.add('active')
+                //     // if (salahTime == 5 && isAzanStarted == false) {
+                //     //        let audio = document.getElementById("azan-fajar");
+                //     //         audio.play();
+                //     //         isAzanStarted = true;
+                //     // }
+                // } else if (salahTime >= 12.06 && salahTime <= 15.30) {
+                //     salahName = "Dhuhur Time";
+                //     document.querySelector('.salah-time-card-dhuhur').classList.add('active')
+                //     document.querySelector('.salah-time-card-fajar').classList.remove('active')
+                // } else if (salahTime >= 15.31 && salahTime <= 18.10) {
+                //     salahName = "Asr Time";
+                //     document.querySelector('.salah-time-card-asr').classList.add('active')
+                //     document.querySelector('.salah-time-card-dhuhur').classList.remove('active')
+                // } else if (salahTime >= 18.11 && salahTime <= 19) {
+                //     salahName = "Magrib Time";
+                //     document.querySelector('.salah-time-card-magrib').classList.add('active')
+                //     document.querySelector('.salah-time-card-asr').classList.remove('active')
+                // } else if (salahTime >= 19.25 && salahTime <= 24) {
+                //     salahName = "Esha Time";
+                //     document.querySelector('.salah-time-card-esha').classList.add('active')
+                //     document.querySelector('.salah-time-card-magrib').classList.remove('active')
+                // } else {
+                //     salahName = "No Salah Time";
+                // }
+                // document.getElementById("salah-result").innerHTML = salahName;
+            };
+        })
+
+        
+    </script>
+</body>
+</html>

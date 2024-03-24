@@ -1,0 +1,30 @@
+
+.salah-time-card {
+    border: 2px solid #eee;
+    padding: 10px 20px;
+    background-color: white;
+    color: black;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.salah-time-card div:first-child,
+.salah-time-card div:last-child {
+    width: 100%;
+}
+.salah-time-card div:last-child {
+    text-align: right;
+}
+.salah-time-card div:nth-child(2) {
+   color: var(--bs-primary);
+}
+.salah-time-card.active {
+    background-color: var(--bs-primary);
+    color: white;
+}
+.salah-time-card.active div:nth-child(2) {
+    color: white;
+}

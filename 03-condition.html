@@ -14,6 +14,9 @@
         <div><b>Your Greetings: </b><span id="greeting-result"></span></div>
         <div><b>This is: </b><span id="salah-result"></span></div>
         <div><b>Digital Clock: </b><span id="digital-clock"></span></div>
+        <audio  controls id="azan-fajar">
+            <source src="./assets/azan1.mp3"  type="audio/mpeg">
+        </audio>
     </div>
     
 
@@ -102,7 +105,7 @@
                 if (salahTime >= 4.50 && salahTime <= 6.08) {
                     salahName = "Fajar Time";
                     if (salahTime == 5 && isAzanStarted == false) {
-                           let audio = new Audio('./assets/azan1.mp3');
+                           let audio = document.getElementById("azan-fajar");
                             audio.play();
                             isAzanStarted = true;
                     }
