@@ -196,7 +196,7 @@
             digitalClock();
             
             function salahTiming(hours, minutes) {
-                let salahTime = 16; //parseFloat(hours + '.' + minutes);
+                let salahTime = parseFloat(hours + '.' + minutes);
                 
                 let salahName;
                 
@@ -260,6 +260,8 @@
                 // }
                 // document.getElementById("salah-result").innerHTML = salahName;
             };
+
+            
         })
 
         
