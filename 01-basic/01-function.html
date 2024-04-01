@@ -27,6 +27,15 @@
 
             sum(10, 30); 
 
+            function sub(num1, num2) {
+                let result = num1 - num2;
+                document.getElementById("result").innerHTML += `<div>${num1}-${num2} = ${result}<div/>`
+                // document.getElementById("result").innerHTML = num1 + '+' + num2 + '=' + result
+                return result;
+            }
+
+            sub(10, 30);
+
             function multiply(num1, num2) {
                 let result = num1 * num2;
                 document.getElementById("result").innerHTML  += `<div>${num1} * ${num2} = ${result}<div/>`
@@ -53,6 +62,17 @@
                 document.getElementById("result").innerHTML += `<div>Total Balance = ${totalBalance}</div>`
             }
             showBalance();
+
+            function showPercentage() {
+                let totalMoney = 1000;
+                let tormujPrice = 450;
+                let totalRemainingMoney = sub(totalMoney, tormujPrice);
+                let percentageOfCost = (tormujPrice/totalMoney)*100;
+                let percentageOfRemainingMoney = (totalRemainingMoney/totalMoney)*100;
+                document.getElementById("result").innerHTML += `<div>Remaining total money = ${totalRemainingMoney}, Percentage of cost = ${percentageOfCost}, percentage of remaining money = ${percentageOfRemainingMoney}</div>`
+            }
+
+            showPercentage();
 
             function dressDiscount() {
                 let dressPrice = 6000;

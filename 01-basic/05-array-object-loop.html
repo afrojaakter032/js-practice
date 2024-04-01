@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array-object-29-03-24</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row load-employess"></div>   
+    </div>
+
+    <div id="result"></div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            let employessSalary = [20000, 20000, 20000, 15000, 15000, "15,000", () => {alert("this is function")}]
+            let arry2 = [20000, 20000, 20000, 15000, 15000]
+            console.log("Array:", employessSalary);
+            console.log("Array-length:",employessSalary.length);
+            console.log("Array-tostring:",employessSalary.toString());
+            console.log("Array-at():",employessSalary.at(4));
+            console.log("Array-join:",employessSalary.join("*"));
+            console.log("Array-pop:",employessSalary.pop());
+            console.log(employessSalary);
+            console.log("Array-push:",employessSalary.push("10000000000"));
+            console.log(employessSalary);
+            console.log("Array-shift:",employessSalary.shift());
+            console.log(employessSalary);
+            console.log("Array-unshift:",employessSalary.unshift("500"));
+            console.log(employessSalary);
+            console.log("Array-delete:",delete employessSalary[1]);
+            console.log(employessSalary);
+            console.log("Array-concat:",employessSalary.concat(arry2));
+            console.log(employessSalary);
+            
+            // employessSalary[6]();
+            document.getElementById("result").innerHTML = "salary of employee =" +  employessSalary[5];
+
+
+            let cat = {
+                ears:"2",
+                eyes:"2", 
+                leg: {
+                    font_leg: "2",
+                    back_leg: "2",
+                    totalLeg: function() {
+                        // document.querySelector("body").style.backgroundColor = "red";
+                        return parseFloat(this.font_leg) + parseFloat(this.back_leg);
+                    }
+                }, 
+                tail:"1"
+            };
+
+            console.log(cat);
+            console.log(cat.leg.totalLeg());
+
+            let employees = [
+                {
+                    first_name: "john",
+                    last_name: "doe",
+                    id_no: "5687",
+                    blood_group: "0+",
+                    designation: "DGM",
+                    company_name: "abc",
+                    email: "abc@gmail.com",
+                    salary: {
+                        basic: 1000000,
+                        rent: 500000,
+                        medical: 3000,
+                        phone_bill: 10000,
+                        total_salary: function() {
+                            let total = this.basic + this.rent + this.medical + this.phone_bill;
+
+                            let formatter = new Intl.NumberFormat('en-US', {
+                                style: 'currency',
+                                currency: 'USD',
+                            });
+
+                            return formatter.format(total);
+                        }
+                    },
+                    address: "habijabi, dhaka",
+                    social_links: {
+                        linkdin: "https://www.w3schools.com/js/js_object_methods.asp",
+                        facebook: "https://www.w3schools.com/js/tryit.asp?filename=tryjs_object_method_toupper"
+                    },
+                    profile_img: "./assets/images/images.jpg"
+                },
+                {
+                    first_name: "dany",
+                    last_name: "dav",
+                    id_no: "56777",
+                    blood_group: "B+",
+                    designation: "Agm",
+                    company_name: "bbc",
+                    email: "bbc@gmail.com",
+                    salary: {
+                        basic: 2000000,
+                        rent: 600000,
+                        medical: 7000,
+                        phone_bill: 90000,
+                        total_salary: function() {
+                            let total = this.basic + this.rent + this.medical + this.phone_bill;
+
+                            let formatter = new Intl.NumberFormat('en-US', {
+                                style: 'currency',
+                                currency: 'USD',
+                            });
+
+                            return formatter.format(total);
+                        }
+                    },
+                    address: "jolsiri, dhaka",
+                    social_links: {
+                        linkdin: "https://www.w3schools.com/js/js_object_methods.asp",
+                        facebook: "https://www.w3schools.com/js/tryit.asp?filename=tryjs_object_method_toupper"
+                    },
+                    profile_img: "./assets/images/pic_bulboff.gif",
+                    phone_no : "0130422480"
+                },
+            ];
+
+            employees.forEach((employee, index) => {
+                let employeeCard = `
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src=${employee.profile_img} class="card-img-top" alt="image" height="200" width="200">
+                            <div class="card-body">
+                                <div>${employee.first_name} ${employee.last_name}</div>
+                                <div>Id no: ${employee.id_no}</div>
+                                <div>Blood Group: ${employee.blood_group}</div>
+                                <div>Designation: ${employee.designation}</div>
+                                <div>company Name: ${employee.company_name}</div>
+                                <div>Salary-Basic: ${employee.salary.basic}</div>
+                                <div>Salary-Rent: ${employee.salary.rent}</div>
+                                <div>Salary-medical: ${employee.salary.medical}</div>
+                                <div>Salary-Phone-Bill: ${employee.salary.phone_bill}</div>
+                                <div>Total salary: ${employee.salary.total_salary()}</div>
+                                <div>Email: ${employee.email}</div>                                                                                             
+                                <div>address: ${employee.address}</div>
+                                <div>Phone no: ${employee.phone_no}</div>
+                                <div class="d-flex gap-3">
+                                    <div><a href=${employee.social_links.linkdin}><i class="ph ph-facebook-logo"></i></a></div>
+                                    <div><a href=${employee.social_links.facebook}><i class="ph ph-linkedin-logo"></i></a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                document.querySelector(".load-employess").innerHTML += employeeCard;
+            });  
+            
+        });
+    </script>
+    
+</body>
+</html>
