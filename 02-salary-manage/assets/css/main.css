@@ -3,3 +3,6 @@
     padding: 0;
 }
 
+.card-wrap .card:first-child .remove-card-btn {
+    display: none;
+}

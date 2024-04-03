@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("add-card-btn").addEventListener("click", () => {
-        document.querySelector(".card-wrap").insertAdjacentHTML("afterend", document.querySelector(".card").outerHTML);
+        document.querySelector(".card-wrap").insertAdjacentHTML("afterbegin", document.querySelector(".card").outerHTML);
         attachRemoveButtonListeners();
     });
 
