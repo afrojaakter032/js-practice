@@ -17,24 +17,26 @@
             </div>
             <div class="col-md-12">
                 <form action="">
-                    <div class="card mb-3">
-                        <div class="card-body position-relative">
-                            <div class="position-absolute top-0 end-0">
-                                <button class="btn text-danger fs-5"><i class="ph ph-trash"></i></button>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <label for="name" class="form-label">Name</label>
-                                        <input type="text" class="form-control" placeholder="Name">
-                                    </div>
+                    <div class="card-wrap">
+                        <div class="card mb-3">
+                            <div class="card-body position-relative">
+                                <div class="position-absolute top-0 end-0">
+                                    <button class="btn text-danger fs-5 remove-card-btn" type="button"><i class="ph ph-trash"></i></button>
                                 </div>
-        
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <label for="salary" class="form-label">Salary</label>
-                                        <input type="text" class="form-control" placeholder="Salary">
+    
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="name" class="form-label">Name</label>
+                                            <input type="text" class="form-control" placeholder="Name">
+                                        </div>
+                                    </div>
+            
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="salary" class="form-label">Salary</label>
+                                            <input type="number" class="form-control" placeholder="Salary">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -44,7 +46,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div>
-                                <button class="btn btn-primary w-100">Add</button>
+                                <button class="btn btn-primary w-100" id="add-card-btn" type="button">Add</button>
                             </div>
                         </div>
                     </div>
@@ -52,5 +54,6 @@
             </div>
         </div>
     </div>
+    <script src="./assets/js/main.js"></script>
 </body>
 </html>
