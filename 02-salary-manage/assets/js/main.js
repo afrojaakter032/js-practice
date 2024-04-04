@@ -18,12 +18,21 @@ document.addEventListener("DOMContentLoaded", function() {
     function attachSalaryInputListeners() {
         document.querySelectorAll(".salary-input").forEach((el) => {
             el.addEventListener("input", () => {
-                let salaryInput = el.value;
-                console.log()
-                document.querySelector(".total-salary").innerHTML = 'Total Salary:' + salaryInput;
+                // let salaryInput = el.value;
+                // document.querySelector(".total-salary").innerHTML = 'Total Salary:' + salaryInput;
+                updateTotalSalary();
                 
             });
         });
     }
     attachSalaryInputListeners();
+
+    function updateTotalSalary() {
+        let totalSalary = 0;
+        document.querySelectorAll(".salary-input").forEach((el) => {
+            let salaryInput = parseFloat(el.value) || 0; 
+            totalSalary += salaryInput;
+        });
+        document.querySelector(".total-salary").innerHTML = 'Total Salary: ' + totalSalary.toFixed(2); 
+    }
 });
