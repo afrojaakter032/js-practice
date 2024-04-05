@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
         document.querySelector(".card-wrap").insertAdjacentHTML("beforeend", document.querySelector(".card").outerHTML);
         attachRemoveButtonListeners();
         attachSalaryInputListeners();
+        updateTotalEmployee();
     });
 
     function attachRemoveButtonListeners() {
@@ -10,6 +11,8 @@ document.addEventListener("DOMContentLoaded", function() {
             el.addEventListener("click", () => {
                 let card = el.parentNode.parentNode.parentNode;
                 card.remove();
+                updateTotalSalary();
+                updateTotalEmployee();
             });
         });
     }
@@ -30,9 +33,14 @@ document.addEventListener("DOMContentLoaded", function() {
     function updateTotalSalary() {
         let totalSalary = 0;
         document.querySelectorAll(".salary-input").forEach((el) => {
-            let salaryInput = parseFloat(el.value) || 0; 
+            let salaryInput = parseFloat(el.value) || 0;
             totalSalary += salaryInput;
         });
         document.querySelector(".total-salary").innerHTML = 'Total Salary: ' + totalSalary.toFixed(2); 
     }
+
+    function updateTotalEmployee() {
+        document.querySelector(".total-employee").innerHTML = 'total employee:' + document.querySelectorAll(".card").length;
+    }
+    updateTotalEmployee();
 });
